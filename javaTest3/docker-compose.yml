@@ -1,0 +1,24 @@
+version: '3'
+services:
+  web:
+    image: hand:3
+    environment:
+      - Film_title=title
+      - Film_description=descriptio
+      - Film_languageid=languageid
+    ports:
+      - 80:80
+    depends_on:
+      - mysql
+    deploy:
+      replicas: 3
+      restart_policy:
+        condition: on-failure
+  mysql:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    deploy:
+      restart_policy:
+        condition: on-failure
+

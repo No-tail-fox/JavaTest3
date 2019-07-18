@@ -1,0 +1,1 @@
+from registry.saas.hand-china.com/tools/javabase:0.5.0
